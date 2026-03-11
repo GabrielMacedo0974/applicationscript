@@ -1,0 +1,35 @@
+def calcular_media_ponderada():
+    print("--- Calculadora de Média Ponderada ---")
+    
+    try:
+        # Solicita o número de notas
+        n = int(input("Quantas notas você deseja inserir? "))
+        
+        soma_notas_pesos = 0
+        soma_pesos = 0
+        
+        for i in range(1, n + 1):
+            print(f"\n--- Nota {i} ---")
+            nota = float(input(f"Digite a nota {i}: "))
+            peso = float(input(f"Digite o peso da nota {i}: "))
+            
+            # Soma a nota * peso
+            soma_notas_pesos += nota * peso
+            # Soma os pesos
+            soma_pesos += peso
+        
+        if soma_pesos == 0:
+            print("A soma dos pesos não pode ser zero.")
+            return
+
+        # Calcula a média final
+        media = soma_notas_pesos / soma_pesos
+        print(f"\n" + "="*30)
+        print(f"Média Ponderada Final: {media:.2f}")
+        print("="*30)
+        
+    except ValueError:
+        print("Erro: Por favor, digite apenas números válidos.")
+
+# Executa a função
+calcular_media_ponderada()
